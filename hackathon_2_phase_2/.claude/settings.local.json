@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(frontend/package.json << 'EOF'\n{\n  \"name\": \"hackathon-todo-frontend\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\": \"next build\",\n    \"start\": \"next start\",\n    \"lint\": \"next lint\"\n  },\n  \"dependencies\": {\n    \"next\": \"^15.1.0\",\n    \"react\": \"^19.0.0\",\n    \"react-dom\": \"^19.0.0\",\n    \"better-auth\": \"^1.1.0\",\n    \"next-themes\": \"^0.4.0\",\n    \"tailwindcss-animate\": \"^1.0.7\",\n    \"lucide-react\": \"^0.468.0\",\n    \"class-variance-authority\": \"^0.7.1\",\n    \"clsx\": \"^2.1.1\",\n    \"tailwind-merge\": \"^2.6.0\"\n  },\n  \"devDependencies\": {\n    \"@types/node\": \"^22\",\n    \"@types/react\": \"^19\",\n    \"@types/react-dom\": \"^19\",\n    \"typescript\": \"^5\",\n    \"tailwindcss\": \"^4.0.0\",\n    \"postcss\": \"^8.4.49\",\n    \"autoprefixer\": \"^10.4.20\",\n    \"eslint\": \"^9\",\n    \"eslint-config-next\": \"^15.1.0\"\n  }\n}\nEOF)",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_close",
+      "mcp__playwright__browser_console_messages",
+      "mcp__playwright__browser_fill_form",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_snapshot",
+      "Bash(xargs kill:*)"
+    ]
+  }
+}

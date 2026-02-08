@@ -1,0 +1,19 @@
+[project]
+name = "todo-app"
+version = "0.1.0"
+description = "A CLI-based todo application"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0",
+    "mypy>=1.0",
+    "black>=23.0",
+    "flake8>=6.0"
+]

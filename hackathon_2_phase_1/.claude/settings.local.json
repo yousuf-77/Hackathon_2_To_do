@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch --all --prune)",
+      "Bash(pwsh -File .specify/scripts/powershell/create-new-feature.ps1 -Json -ShortName \"basic-todo\" -Number 1 \"Create a specification for the Basic Todo Functionality. Context: This is an MVP \\(Minimum Viable Product\\) to manage tasks via terminal. Data Model \\(Task\\): - ID \\(int, auto-increment\\) - Title \\(str\\) - Description \\(str\\) - Status \\(str: Pending vs Completed\\) Functional Requirements \\(CRUD + Action\\): 1. Add Task: Prompt for title/desc, auto-assign ID, default status Pending. 2. View Tasks: List all tasks showing ID, Status indicator [x], Title, and Description. 3. Update Task: Edit Title/Description by ID. 4. Delete Task: Remove by ID. 5. Mark Complete: Toggle status to Completed by ID. UI Flow: - App runs in a while True loop displaying a numbered menu \\(1-6\\) including Exit.\")",
+      "Bash(pwsh -File .specify/scripts/powershell/setup-plan.ps1 -Json)",
+      "Bash(pwsh -File .specify/scripts/powershell/check-prerequisites.ps1 -Json)",
+      "Bash(pwsh -File .specify/scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks)",
+      "Bash(python -m pytest tests/ -v)",
+      "Bash(python -c \"from src.models.task import Task; from src.services.todo_manager import TodoManager; from src.cli.interface import add_task_flow; print\\(''Import successful''\\)\")",
+      "Bash(python src/main.py)",
+      "Bash(python main.py)",
+      "Bash(PYTHONPATH=. python -m src.main)",
+      "Bash(python -m py_compile src/models/task.py src/services/todo_manager.py src/cli/interface.py src/main.py)",
+      "Bash(python -m py_compile tests/unit/test_services/test_todo_manager.py tests/integration/test_cli.py)",
+      "Bash(python -c \"import sys; sys.path.insert\\(0, ''.''\\); from src.models.task import Task; from src.services.todo_manager import TodoManager; from src.cli.interface import display_menu; print\\(''All modules imported successfully''\\)\")"
+    ]
+  }
+}

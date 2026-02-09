@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "@/app/api/auth/[...all]/route";
+import { auth } from "@/lib/auth-config";
 
 const SECRET = process.env.BETTER_AUTH_SECRET || "Ix8VG1V8AcbECliujtd2snDxAmMvVxX5";
 

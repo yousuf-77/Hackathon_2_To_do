@@ -38,8 +38,7 @@ export function EditTaskDialog({
       // await apiClient.put(`/api/tasks/${task.id}`, data);
 
       toast({
-        title: "Task updated",
-        description: "Your task has been updated successfully.",
+        title: "Task updated successfully",
       });
 
       onOpenChange(false);
@@ -47,7 +46,6 @@ export function EditTaskDialog({
     } catch (error) {
       toast({
         title: "Failed to update task",
-        description: error instanceof Error ? error.message : "An error occurred",
         variant: "destructive",
       });
     } finally {

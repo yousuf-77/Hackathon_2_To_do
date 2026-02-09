@@ -27,7 +27,6 @@ export default function DashboardPage() {
     } catch (error) {
       toast({
         title: "Failed to load tasks",
-        description: error instanceof Error ? error.message : "An error occurred",
         variant: "destructive",
       });
       // Set empty array on error
@@ -51,13 +50,11 @@ export default function DashboardPage() {
       );
 
       toast({
-        title: "Task updated",
-        description: `Task marked as ${task.completed ? "incomplete" : "complete"}`,
+        title: `Task marked as ${task.completed ? "incomplete" : "complete"}`,
       });
     } catch (error) {
       toast({
         title: "Failed to update task",
-        description: error instanceof Error ? error.message : "An error occurred",
         variant: "destructive",
       });
     }
@@ -69,13 +66,11 @@ export default function DashboardPage() {
       setTasks(tasks.filter((t) => t.id !== id));
 
       toast({
-        title: "Task deleted",
-        description: "Task has been removed successfully",
+        title: "Task deleted successfully",
       });
     } catch (error) {
       toast({
         title: "Failed to delete task",
-        description: error instanceof Error ? error.message : "An error occurred",
         variant: "destructive",
       });
     }
@@ -84,8 +79,7 @@ export default function DashboardPage() {
   const handleEdit = (task: Task) => {
     // TODO: Implement edit dialog
     toast({
-      title: "Edit feature",
-      description: "Edit dialog will be implemented soon",
+      title: "Edit feature coming soon",
     });
   };
 

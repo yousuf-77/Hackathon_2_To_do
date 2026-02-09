@@ -14,7 +14,7 @@ import { Plus } from "lucide-react";
 import { TaskForm } from "./task-form";
 import { tasksApi } from "@/lib/api/tasks";
 import { useToast } from "@/components/ui/use-toast";
-import type { CreateTaskDto } from "@/types/task";
+import type { CreateTaskDto, UpdateTaskDto } from "@/types/task";
 
 interface AddTaskDialogProps {
   onTaskAdded?: () => void;
@@ -25,14 +25,14 @@ export function AddTaskDialog({ onTaskAdded }: AddTaskDialogProps) {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async (data: CreateTaskDto) => {
+  const handleSubmit = async (data: CreateTaskDto | UpdateTaskDto) => {
     try {
       setIsLoading(true);
-      await tasksApi.createTask(data);
+      // This is AddTaskDialog, so data should always be CreateTaskDto
+      await tasksApi.createTask(data as CreateTaskDto);
 
       toast({
-        title: "Task created",
-        description: "Your task has been added successfully.",
+        title: "Task created successfully",
       });
 
       setOpen(false);
@@ -40,7 +40,6 @@ export function AddTaskDialog({ onTaskAdded }: AddTaskDialogProps) {
     } catch (error) {
       toast({
         title: "Failed to create task",
-        description: error instanceof Error ? error.message : "An error occurred",
         variant: "destructive",
       });
     } finally {

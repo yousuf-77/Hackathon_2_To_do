@@ -43,7 +43,6 @@ export function LoginForm() {
 
       toast({
         title: "Welcome back!",
-        description: "You have successfully signed in.",
       });
 
       setTimeout(() => {
@@ -52,7 +51,6 @@ export function LoginForm() {
     } catch (error) {
       toast({
         title: "Sign in failed",
-        description: error instanceof Error ? error.message : "An error occurred",
         variant: "destructive",
       });
     } finally {

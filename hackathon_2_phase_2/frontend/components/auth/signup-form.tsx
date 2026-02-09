@@ -31,8 +31,7 @@ export function SignupForm() {
 
     if (!email || !password || !name) {
       toast({
-        title: "Missing fields",
-        description: "Please fill in all fields",
+        title: "Please fill in all fields",
         variant: "destructive",
       });
       return;
@@ -41,7 +40,6 @@ export function SignupForm() {
     if (password !== confirmPassword) {
       toast({
         title: "Passwords don't match",
-        description: "Please make sure your passwords match.",
         variant: "destructive",
       });
       return;
@@ -49,8 +47,7 @@ export function SignupForm() {
 
     if (password.length < 8) {
       toast({
-        title: "Password too short",
-        description: "Password must be at least 8 characters long.",
+        title: "Password must be at least 8 characters long.",
         variant: "destructive",
       });
       return;
@@ -77,8 +74,7 @@ export function SignupForm() {
       console.log("=== Signup successful, user:", result.user);
 
       toast({
-        title: "Account created!",
-        description: "Please sign in with your credentials.",
+        title: "Account created! Please sign in.",
       });
 
       setTimeout(() => {
@@ -91,7 +87,6 @@ export function SignupForm() {
 
       toast({
         title: "Sign up failed",
-        description: error?.message || "An error occurred",
         variant: "destructive",
       });
     } finally {

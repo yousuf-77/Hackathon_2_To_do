@@ -561,7 +561,7 @@ BETTER_AUTH_SECRET=Ix8VG1V8AcbECliujtd2snDxAmMvVxX5
 NEXT_PUBLIC_API_URL=http://localhost:8000
 
 # Phase 3 Variables (NEW)
-NEXT_PUBLIC_COHERE_API_KEY=6Tcf034qmm5ADPq8SAis8ZtD1Zsyq3fwYo86uUxE  # Optional: for client-side Cohere calls
+NEXT_PUBLIC_COHERE_API_KEY=  # Optional: for client-side Cohere calls
 ```
 
 **Backend (.env):**
@@ -574,7 +574,7 @@ JWT_ALGORITHM=HS256
 JWT_EXPIRATION_DAYS=7
 
 # Phase 3 Variables (NEW)
-COHERE_API_KEY=6Tcf034qmm5ADPq8SAis8ZtD1Zsyq3fwYo86uUxE  # Cohere LLM for NLP
+COHERE_API_KEY= # Cohere LLM for NLP
 MCP_BASE_URL=http://localhost:8000/api/mcp
 MCP_TRANSPORT=sse  # 'stdio' for local dev, 'sse' for production
 
@@ -1158,7 +1158,7 @@ cp .env.example .env
 # Edit .env with your values
 # DATABASE_URL=postgresql://user:pass@host:port/db
 # BETTER_AUTH_SECRET=Ix8VG1V8AcbECliujtd2snDxAmMvVxX5
-# COHERE_API_KEY=6Tcf034qmm5ADPq8SAis8ZtD1Zsyq3fwYo86uUxE
+# COHERE_API_KEY=
 
 # Run database migrations (if any)
 # alembic upgrade head
@@ -1481,7 +1481,7 @@ JWT_ALGORITHM=HS256
 JWT_EXPIRATION_DAYS=7
 
 # Cohere API Key
-COHERE_API_KEY=6Tcf034qmm5ADPq8SAis8ZtD1Zsyq3fwYo86uUxE
+COHERE_API_KEY=
 
 # MCP Server Configuration
 MCP_BASE_URL=http://localhost:8000/api/mcp

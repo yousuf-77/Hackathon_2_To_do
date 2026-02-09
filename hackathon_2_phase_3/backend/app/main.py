@@ -37,12 +37,14 @@ app.add_middleware(
         "http://localhost:3003",      # Alternate port
         "http://localhost:3004",      # Alternate port
         "http://localhost:3005",      # Alternate port
+        "http://localhost:3006",      # Alternate port
         "http://127.0.0.1:3000",      # Loopback
         "http://127.0.0.1:3001",      # Loopback
         "http://127.0.0.1:3002",      # Loopback
         "http://127.0.0.1:3003",      # Loopback
         "http://127.0.0.1:3004",      # Loopback
         "http://127.0.0.1:3005",      # Loopback
+        "http://127.0.0.1:3006",      # Loopback
         settings.frontend_url,        # From env var
     ],
     allow_credentials=True,
@@ -69,11 +71,11 @@ async def log_requests(request, call_next):
 # Include Routers
 from app.api.routes.tasks import router as tasks_router
 from app.api.routes.health import router as health_router
-from app.api.routes.agent import router as agent_router
+from app.api.routes.agent import router as agent_router  # Phase 3: AI Chatbot
 
 app.include_router(tasks_router)
 app.include_router(health_router)
-app.include_router(agent_router)
+app.include_router(agent_router)  # Phase 3: AI Chatbot endpoints
 
 
 # Root Endpoint

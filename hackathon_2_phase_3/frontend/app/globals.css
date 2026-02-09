@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background & Surface */
+    --background: 0 0% 4%;
+    --foreground: 92 8% 93%;
+
+    /* Card / Glassmorphism */
+    --card: 0 0% 4%;
+    --card-foreground: 92 8% 93%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 92 8% 93%;
+
+    /* Primary Actions */
+    --primary: 189 100% 50%;
+    --primary-foreground: 0 0% 4%;
+
+    /* Secondary */
+    --secondary: 300 100% 50%;
+    --secondary-foreground: 0 0% 4%;
+
+    /* Muted / Disabled */
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent */
+    --accent: 300 100% 50%;
+    --accent-foreground: 0 0% 4%;
+
+    /* UI Elements */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 189 100% 50%;
+
+    /* Custom Neon Colors */
+    --neon-blue: 189 100% 50%;
+    --neon-pink: 300 100% 50%;
+    --neon-green: 144 100% 50%;
+    --neon-yellow: 48 100% 50%;
+    --neon-purple: 270 100% 60%;
+
+    /* Priority Colors */
+    --priority-low: 189 100% 50%;
+    --priority-medium: 48 100% 50%;
+    --priority-high: 300 100% 50%;
+
+    /* Radius */
+    --radius: 0.75rem;
+
+    /* Fonts */
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 189 100% 40%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 300 100% 40%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 300 100% 40%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 189 100% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* Neon Glow Utilities */
+  .neon-glow {
+    box-shadow:
+      0 0 10px rgba(0, 212, 255, 0.5),
+      0 0 20px rgba(0, 212, 255, 0.3),
+      0 0 40px rgba(0, 212, 255, 0.1);
+  }
+
+  .neon-glow-pink {
+    box-shadow:
+      0 0 10px rgba(255, 0, 255, 0.5),
+      0 0 20px rgba(255, 0, 255, 0.3);
+  }
+
+  .neon-glow-green {
+    box-shadow:
+      0 0 10px rgba(0, 255, 136, 0.5),
+      0 0 20px rgba(0, 255, 136, 0.3);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+
+  .glass-card {
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+  }
+
+  /* Text Effects */
+  .neon-text {
+    text-shadow:
+      0 0 10px currentColor,
+      0 0 20px currentColor;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-neon-blue to-neon-pink bg-clip-text text-transparent;
+  }
+
+  /* Animations */
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    background-size: 1000px 100%;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Loading States */
+  .loading-skeleton {
+    @apply bg-muted/50 animate-pulse rounded;
+  }
+
+  /* Smooth Transitions */
+  * {
+    @apply transition-colors duration-200;
+  }
+
+  button, a, input, textarea {
+    @apply transition-all duration-200;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-lg;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+
+  /* Focus Styles */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Page Transitions */
+  .page-transition {
+    @apply transition-opacity duration-300;
+  }
+
+  .page-enter {
+    @apply opacity-0;
+  }
+
+  .page-enter-active {
+    @apply opacity-100;
+  }
+}

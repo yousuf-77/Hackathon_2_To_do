@@ -26,7 +26,7 @@ tests:
 Create specs/agent-logic.md specification for Phase 3 agent orchestration.
 
 Requirements from constitution:
-- Use OpenAI Agents SDK structure with Cohere as LLM (COHERE_API_KEY = 6Tcf034qmm5ADPq8SAis8ZtD1Zsyq3fwYo86uUxE)
+- Use OpenAI Agents SDK structure with Cohere as LLM 
 - Parse NLP input, call MCP tools, handle errors/ambiguity
 - Streaming responses to ChatKit
 - Urdu/voice handling integration

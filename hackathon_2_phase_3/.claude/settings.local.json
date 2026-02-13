@@ -56,7 +56,8 @@
       "mcp__playwright__browser_resize",
       "Bash(kill:*)",
       "Bash(pgrep:*)",
-      "Bash(fuser:*)"
+      "Bash(fuser:*)",
+      "Bash(npx next build:*)"
     ]
   }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { TaskList } from "@/components/task/task-list";
@@ -8,10 +8,12 @@ import { TaskTable } from "@/components/task/task-table";
 import { AddTaskDialog } from "@/components/task/add-task-dialog";
 import { TaskEditDialog } from "@/components/tasks/TaskEditDialog";
 import { ChatWidget } from "@/components/chatkit/ChatWidget";
+import { TaskFilters } from "@/components/tasks/TaskFilters";
 import { tasksApi } from "@/lib/api/tasks";
 import { useToast } from "@/components/ui/use-toast";
 import { apiClient } from "@/lib/api-client";
 import type { Task } from "@/types/task";
+import type { TaskPriority, TaskStatus, SortBy } from "@/components/tasks/TaskFilters";
 
 export default function DashboardPage() {
   const { toast } = useToast();
@@ -19,6 +21,13 @@ export default function DashboardPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [authToken, setAuthToken] = useState<string | null>(null);
   const [editingTask, setEditingTask] = useState<Task | null>(null);
+
+  // Filter and sort state
+  const [searchQuery, setSearchQuery] = useState("");
+  const [statusFilter, setStatusFilter] = useState<TaskStatus>("all");
+  const [priorityFilter, setPriorityFilter] = useState<TaskPriority>("all");
+  const [sortBy, setSortBy] = useState<SortBy>("created_at");
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   useEffect(() => {
     fetchTasks();
@@ -172,6 +181,72 @@ export default function DashboardPage() {
     active: tasks.filter((t) => !t.completed).length,
   };
 
+  // Priority order for sorting
+  const priorityOrder = { high: 0, medium: 1, low: 2 };
+
+  // Filtered and sorted tasks
+  const filteredAndSortedTasks = useMemo(() => {
+    let filtered = [...tasks];
+
+    // Apply search filter
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(
+        (task) =>
+          task.title.toLowerCase().includes(query) ||
+          (task.description?.toLowerCase().includes(query))
+      );
+    }
+
+    // Apply status filter
+    if (statusFilter === "pending") {
+      filtered = filtered.filter((t) => !t.completed);
+    } else if (statusFilter === "completed") {
+      filtered = filtered.filter((t) => t.completed);
+    }
+
+    // Apply priority filter
+    if (priorityFilter !== "all") {
+      filtered = filtered.filter((t) => t.priority === priorityFilter);
+    }
+
+    // Apply tag filter (tasks don't have tags yet, but keeping for future)
+    if (selectedTags.length > 0) {
+      filtered = filtered.filter((task) => {
+        // This will work when tasks have tags field
+        const taskTags = (task as any).tags || [];
+        return selectedTags.some((tag) => taskTags.includes(tag));
+      });
+    }
+
+    // Apply sorting
+    filtered.sort((a, b) => {
+      if (sortBy === "created_at") {
+        // Newest first
+        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+      } else if (sortBy === "due_date") {
+        // Tasks don't have due_date yet, default to created_at
+        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+      } else if (sortBy === "priority") {
+        // High priority first
+        return priorityOrder[a.priority] - priorityOrder[b.priority];
+      }
+      return 0;
+    });
+
+    return filtered;
+  }, [tasks, searchQuery, statusFilter, priorityFilter, sortBy, selectedTags]);
+
+  // Get available tags (for future use)
+  const availableTags: string[] = useMemo(() => {
+    const tagSet = new Set<string>();
+    tasks.forEach((task) => {
+      const taskTags = (task as any).tags || [];
+      taskTags.forEach((tag: string) => tagSet.add(tag));
+    });
+    return Array.from(tagSet);
+  }, [tasks]);
+
   if (isLoading) {
     return null; // Loading skeleton will be shown by loading.tsx
   }
@@ -213,18 +288,38 @@ export default function DashboardPage() {
         </div>
       </div>
 
+      {/* Search and Sort Filters */}
+      <TaskFilters
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+        statusFilter={statusFilter}
+        onStatusChange={setStatusFilter}
+        priorityFilter={priorityFilter}
+        onPriorityChange={setPriorityFilter}
+        sortBy={sortBy}
+        onSortChange={setSortBy}
+        selectedTags={selectedTags}
+        onTagsChange={setSelectedTags}
+        availableTags={availableTags}
+      />
+
       {/* Task list/table */}
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Your Tasks</h2>
+        <div className="flex items-center justify-between">
+          <h2 className="text-xl font-semibold">Your Tasks</h2>
+          <p className="text-sm text-muted-foreground">
+            Showing {filteredAndSortedTasks.length} of {stats.total} tasks
+          </p>
+        </div>
         <TaskList
-          tasks={tasks}
+          tasks={filteredAndSortedTasks}
           onToggleComplete={handleToggleComplete}
           onEdit={handleEdit}
           onDelete={handleDelete}
-          emptyMessage="No tasks yet. Create your first task!"
+          emptyMessage="No tasks match your filters. Try adjusting them!"
         />
         <TaskTable
-          tasks={tasks}
+          tasks={filteredAndSortedTasks}
           onToggleComplete={handleToggleComplete}
           onEdit={handleEdit}
           onDelete={handleDelete}

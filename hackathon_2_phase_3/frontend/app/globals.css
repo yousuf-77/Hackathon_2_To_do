@@ -58,25 +58,50 @@
   }
 
   .light {
-    --background: 0 0% 98%;
+    /* Light Theme - Clean & Bright */
+    --background: 210 40% 98%;
     --foreground: 222 47% 11%;
+
+    /* Cards with subtle warmth */
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
-    --primary: 189 100% 40%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 300 100% 40%;
-    --secondary-foreground: 0 0% 98%;
+
+    /* Primary Actions - Vibrant Blue */
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Warm Pink */
+    --secondary: 330 81% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted / Disabled */
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
-    --accent: 300 100% 40%;
-    --accent-foreground: 0 0% 98%;
+
+    /* Accent */
+    --accent: 330 81% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    /* UI Elements */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 189 100% 40%;
+    --ring: 199 89% 48%;
+
+    /* Light Theme Neon Colors - Rich & Vibrant */
+    --neon-blue: 199 89% 48%;
+    --neon-pink: 330 81% 65%;
+    --neon-green: 150 86% 45%;
+    --neon-yellow: 45 93% 58%;
+    --neon-purple: 271 81% 56%;
+
+    /* Priority Colors - Light Theme */
+    --priority-low: 199 89% 48%;
+    --priority-medium: 45 93% 58%;
+    --priority-high: 340 82% 62%;
   }
 }
 
@@ -123,6 +148,14 @@
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
+  }
+
+  .light .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(199, 137, 218, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   }
 
   /* Text Effects */

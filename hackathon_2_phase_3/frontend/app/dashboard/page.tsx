@@ -304,14 +304,14 @@ export default function DashboardPage() {
     >
       {/* Header */}
       <motion.div variants={itemVariants} className="relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-3xl blur-3xl" />
         <div className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-6">
           <div className="space-y-2">
             <div className="flex items-center gap-3">
               <motion.div
                 animate={{ rotate: [0, 5, -5, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl shadow-lg shadow-cyan-500/30"
+                className="p-3 bg-gradient-to-br from-primary to-primary/80 rounded-2xl shadow-lg shadow-primary/30"
               >
                 <LayoutDashboard className="w-6 h-6 text-white" />
               </motion.div>
@@ -350,34 +350,34 @@ export default function DashboardPage() {
           transition={{ type: "spring" as const, stiffness: 300, damping: 20 }}
           className="group relative"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-          <div className="relative glass-card p-6 space-y-3 border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+          <div className="relative glass-card p-6 space-y-3 border-primary/20 hover:border-primary/40 transition-all duration-300">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="p-2 bg-cyan-500/20 rounded-lg">
-                  <Target className="w-5 h-5 text-cyan-400" />
+                <div className="p-2 bg-primary/20 rounded-lg">
+                  <Target className="w-5 h-5 text-neon-blue" />
                 </div>
                 <p className="text-sm text-muted-foreground font-medium">Total Tasks</p>
               </div>
               <motion.div
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="p-2 bg-cyan-500/10 rounded-full"
+                className="p-2 bg-primary/10 rounded-full"
               >
-                <TrendingUp className="w-4 h-4 text-cyan-400" />
+                <TrendingUp className="w-4 h-4 text-neon-blue" />
               </motion.div>
             </div>
             <motion.p
-              className="text-4xl font-bold text-cyan-400"
+              className="text-4xl font-bold text-neon-blue"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring" as const, stiffness: 200, damping: 10 }}
             >
               {stats.total}
             </motion.p>
-            <div className="h-1 bg-gradient-to-r from-cyan-500 to-transparent rounded-full overflow-hidden">
+            <div className="h-1 bg-gradient-to-r from-neon-blue to-transparent rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-cyan-400"
+                className="h-full bg-neon-blue"
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
                 transition={{ duration: 1, delay: 0.5 }}
@@ -392,33 +392,33 @@ export default function DashboardPage() {
           transition={{ type: "spring" as const, stiffness: 300, damping: 20 }}
           className="group relative"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-          <div className="relative glass-card p-6 space-y-3 border-blue-500/20 hover:border-blue-500/40 transition-all duration-300">
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-accent/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+          <div className="relative glass-card p-6 space-y-3 border-secondary/20 hover:border-secondary/40 transition-all duration-300">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="p-2 bg-blue-500/20 rounded-lg">
-                  <Flame className="w-5 h-5 text-neon-blue" />
+                <div className="p-2 bg-secondary/20 rounded-lg">
+                  <Flame className="w-5 h-5 text-neon-pink" />
                 </div>
                 <p className="text-sm text-muted-foreground font-medium">Active</p>
               </div>
               <Badge
                 variant="outline"
-                className="bg-neon-blue/20 text-neon-blue border-neon-blue/50 shadow-[0_0_10px_rgba(34,211,238,0.3)]"
+                className="bg-neon-pink/20 text-neon-pink border-neon-pink/50 shadow-[0_0_10px_hsl(var(--neon-pink)/0.3)]"
               >
                 Active
               </Badge>
             </div>
             <motion.p
-              className="text-4xl font-bold text-neon-blue"
+              className="text-4xl font-bold text-neon-pink"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring" as const, stiffness: 200, damping: 10, delay: 0.1 }}
             >
               {stats.active}
             </motion.p>
-            <div className="h-1 bg-gradient-to-r from-neon-blue to-transparent rounded-full overflow-hidden">
+            <div className="h-1 bg-gradient-to-r from-neon-pink to-transparent rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-neon-blue"
+                className="h-full bg-neon-pink"
                 initial={{ width: 0 }}
                 animate={{ width: `${(stats.active / stats.total) * 100 || 0}%` }}
                 transition={{ duration: 1, delay: 0.6 }}
@@ -433,18 +433,18 @@ export default function DashboardPage() {
           transition={{ type: "spring" as const, stiffness: 300, damping: 20 }}
           className="group relative"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-          <div className="relative glass-card p-6 space-y-3 border-green-500/20 hover:border-green-500/40 transition-all duration-300">
+          <div className="absolute inset-0 bg-gradient-to-br from-neon-green/20 to-neon-green/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+          <div className="relative glass-card p-6 space-y-3 border-neon-green/20 hover:border-neon-green/40 transition-all duration-300">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="p-2 bg-green-500/20 rounded-lg">
+                <div className="p-2 bg-neon-green/20 rounded-lg">
                   <CheckCircle2 className="w-5 h-5 text-neon-green" />
                 </div>
                 <p className="text-sm text-muted-foreground font-medium">Completed</p>
               </div>
               <Badge
                 variant="outline"
-                className="bg-neon-green/20 text-neon-green border-neon-green/50 shadow-[0_0_10px_rgba(0,255,136,0.3)]"
+                className="bg-neon-green/20 text-neon-green border-neon-green/50 shadow-[0_0_10px_hsl(var(--neon-green)/0.3)]"
               >
                 Done
               </Badge>
@@ -490,15 +490,15 @@ export default function DashboardPage() {
       <motion.div variants={itemVariants} className="space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg border border-purple-500/30">
-              <Filter className="w-5 h-5 text-purple-400" />
+            <div className="p-2 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg border border-primary/30">
+              <Filter className="w-5 h-5 text-neon-purple" />
             </div>
             <h2 className="text-2xl font-semibold">Your Tasks</h2>
           </div>
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-2 text-sm text-muted-foreground bg-slate-900/50 px-4 py-2 rounded-full border border-slate-700/50"
+            className="flex items-center gap-2 text-sm text-muted-foreground bg-card/80 px-4 py-2 rounded-full border border-border/50 backdrop-blur-sm"
           >
             <Search className="w-4 h-4" />
             Showing {filteredAndSortedTasks.length} of {stats.total} tasks
@@ -514,9 +514,9 @@ export default function DashboardPage() {
               <motion.div
                 animate={{ rotate: [0, 10, -10, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="p-6 bg-slate-800/50 rounded-full border border-slate-700/50"
+                className="p-6 bg-muted/50 rounded-full border border-border/50"
               >
-                <Circle className="w-16 h-16 text-slate-600" />
+                <Circle className="w-16 h-16 text-muted-foreground/50" />
               </motion.div>
               <div className="text-center space-y-2">
                 <p className="text-xl font-semibold text-muted-foreground">
@@ -524,7 +524,7 @@ export default function DashboardPage() {
                     ? "No tasks match your filters"
                     : "No tasks yet"}
                 </p>
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-muted-foreground/70">
                   {searchQuery || statusFilter !== "all" || priorityFilter !== "all"
                     ? "Try adjusting your filters"
                     : "Create your first task to get started!"}

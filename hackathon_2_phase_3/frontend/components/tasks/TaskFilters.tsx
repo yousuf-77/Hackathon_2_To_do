@@ -160,14 +160,14 @@ export function TaskFilters({
       className={cn(
         "relative group",
         "glass-card p-5 space-y-4",
-        "border border-cyan-500/20",
-        "hover:border-cyan-500/30 transition-all duration-300",
+        "border border-primary/20",
+        "hover:border-primary/30 transition-all duration-300",
         className
       )}
       style={{
         boxShadow: `
-          0 0 20px rgba(6, 182, 212, 0.1),
-          inset 0 0 20px rgba(6, 182, 212, 0.02)
+          0 0 20px hsl(var(--primary) / 0.1),
+          inset 0 0 20px hsl(var(--primary) / 0.02)
         `.trim(),
       }}
     >
@@ -177,10 +177,10 @@ export function TaskFilters({
           className="absolute inset-0"
           animate={{
             background: [
-              "radial-gradient(circle at 0% 0%, rgba(6, 182, 212, 0.1), transparent 50%)",
-              "radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.1), transparent 50%)",
-              "radial-gradient(circle at 100% 0%, rgba(236, 72, 153, 0.1), transparent 50%)",
-              "radial-gradient(circle at 0% 100%, rgba(6, 182, 212, 0.1), transparent 50%)",
+              "radial-gradient(circle at 0% 0%, hsl(var(--primary) / 0.1), transparent 50%)",
+              "radial-gradient(circle at 100% 100%, hsl(var(--secondary) / 0.1), transparent 50%)",
+              "radial-gradient(circle at 100% 0%, hsl(var(--accent) / 0.1), transparent 50%)",
+              "radial-gradient(circle at 0% 100%, hsl(var(--primary) / 0.1), transparent 50%)",
             ],
           }}
           transition={{
@@ -210,15 +210,15 @@ export function TaskFilters({
             <div
               className="absolute inset-0 rounded-lg blur-md opacity-50"
               style={{
-                background: "radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, transparent 70%)",
+                background: "radial-gradient(circle, hsl(var(--primary) / 0.4) 0%, transparent 70%)",
               }}
             />
-            <div className="relative p-2 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-lg border border-cyan-500/30">
+            <div className="relative p-2 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg border border-primary/30">
               <Filter className="w-4 h-4 text-neon-blue" />
             </div>
           </motion.div>
-          <span className="text-sm font-semibold text-slate-200">Filters</span>
-          <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
+          <span className="text-sm font-semibold text-foreground">Filters</span>
+          <Sparkles className="w-4 h-4 text-neon-blue animate-pulse" />
         </div>
 
         <AnimatePresence>
@@ -278,11 +278,11 @@ export function TaskFilters({
           placeholder="Search tasks by title or description..."
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="pl-10 bg-slate-900/50 border-cyan-500/20 focus:border-cyan-500/50 focus:shadow-[0_0_20px_rgba(6,182,212,0.15)] transition-all"
+          className="pl-10 bg-card/50 border-primary/20 focus:border-primary/40 focus:shadow-[0_0_20px_hsl(var(--primary)/0.15)] transition-all"
         />
         {/* Subtle glow effect on focus */}
         <div className="absolute inset-0 rounded-lg opacity-0 pointer-events-none">
-          <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-cyan-500/5 to-purple-500/5 blur-sm" />
+          <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-primary/5 to-secondary/5 blur-sm" />
         </div>
       </div>
 
@@ -294,7 +294,7 @@ export function TaskFilters({
           transition={{ type: "spring" as const, stiffness: 300, damping: 20 }}
         >
           <Select value={statusFilter} onValueChange={onStatusChange}>
-            <SelectTrigger className="bg-slate-900/50 border-cyan-500/20 hover:border-cyan-500/40 transition-all">
+            <SelectTrigger className="bg-card/50 border-primary/20 hover:border-primary/40 transition-all">
               <SelectValue placeholder="Status" />
             </SelectTrigger>
             <SelectContent>
@@ -311,7 +311,7 @@ export function TaskFilters({
           transition={{ type: "spring" as const, stiffness: 300, damping: 20, delay: 0.05 }}
         >
           <Select value={priorityFilter} onValueChange={onPriorityChange}>
-            <SelectTrigger className="bg-slate-900/50 border-cyan-500/20 hover:border-cyan-500/40 transition-all">
+            <SelectTrigger className="bg-card/50 border-primary/20 hover:border-primary/40 transition-all">
               <SelectValue placeholder="Priority" />
             </SelectTrigger>
             <SelectContent>
@@ -329,7 +329,7 @@ export function TaskFilters({
           transition={{ type: "spring" as const, stiffness: 300, damping: 20, delay: 0.1 }}
         >
           <Select value={sortBy} onValueChange={onSortChange}>
-            <SelectTrigger className="bg-slate-900/50 border-cyan-500/20 hover:border-cyan-500/40 transition-all">
+            <SelectTrigger className="bg-card/50 border-primary/20 hover:border-primary/40 transition-all">
               <SelectValue placeholder="Sort by" />
             </SelectTrigger>
             <SelectContent>
@@ -373,8 +373,8 @@ export function TaskFilters({
                         "cursor-pointer transition-all",
                         "border backdrop-blur-sm",
                         isSelected
-                          ? "bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-400 border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.3)]"
-                          : "hover:border-cyan-500/40 hover:shadow-[0_0_10px_rgba(6,182,212,0.2)]"
+                          ? "bg-gradient-to-r from-primary/20 to-secondary/20 text-neon-blue border-primary/50 shadow-[0_0_15px_hsl(var(--primary)/0.3)]"
+                          : "hover:border-primary/40 hover:shadow-[0_0_10px_hsl(var(--primary)/0.2)]"
                       )}
                       onClick={() => toggleTag(tag)}
                     >
@@ -398,14 +398,14 @@ export function TaskFilters({
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="flex items-center justify-between text-xs text-muted-foreground pt-2 border-t border-slate-800/50"
+            className="flex items-center justify-between text-xs text-muted-foreground pt-2 border-t border-border/50"
           >
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              <div className="w-1.5 h-1.5 rounded-full bg-neon-blue animate-pulse" />
               <span>
                 {selectedTags.length > 0 && `${selectedTags.length} tag(s) selected`}
                 {selectedTags.length > 0 && (
-                  <span className="text-slate-600"> • </span>
+                  <span className="text-muted-foreground/60"> • </span>
                 )}
                 filtered by your criteria
               </span>
@@ -414,7 +414,7 @@ export function TaskFilters({
               {[0, 1, 2].map((i) => (
                 <motion.div
                   key={i}
-                  className="w-1 h-1 rounded-full bg-cyan-500/50"
+                  className="w-1 h-1 rounded-full bg-primary/50"
                   animate={{
                     opacity: [0.3, 1, 0.3],
                     scale: [0.8, 1, 0.8],

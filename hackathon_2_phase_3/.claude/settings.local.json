@@ -60,7 +60,8 @@
       "Bash(npx next build:*)",
       "Bash(npx --yes playwright install:*)",
       "Bash(node:*)",
-      "Bash(npx playwright install:*)"
+      "Bash(npx playwright install:*)",
+      "Bash(cat:*)"
     ]
   }
 }

@@ -5,7 +5,8 @@
  * Phase 3: AI-Powered Todo Chatbot
  */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 import { MessageCircle, X } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 import { ChatHeader } from "./ChatHeader";
@@ -54,9 +55,26 @@ export function ChatWidget({
   loadHistory = false,
   showLanguageToggle = false,
 }: ChatWidgetProps) {
-  const [isOpen, setIsOpen] = useState(initialOpen);
+  // Persist open/closed state in localStorage to survive dashboard re-renders
+  // Always prefer localStorage over initialOpen prop
+  const [isOpen, setIsOpen] = useState(() => {
+    try {
+      const saved = localStorage.getItem('chat-widget-open');
+      if (saved !== null) {
+        return JSON.parse(saved);
+      }
+    } catch (e) {
+      console.error('[ChatWidget] Error reading localStorage:', e);
+    }
+    return initialOpen;
+  });
   const [language, setLanguage] = useState<"en" | "ur">("en");
   const [isRTL, setIsRTL] = useState(false);
+
+  // Persist isOpen state to localStorage so it survives dashboard re-renders
+  useEffect(() => {
+    localStorage.setItem('chat-widget-open', JSON.stringify(isOpen));
+  }, [isOpen]);
 
   const {
     messages,
@@ -79,22 +97,22 @@ export function ChatWidget({
     await sendMessage(content);
   };
 
+  // Render floating toggle when closed, full widget when open
   if (!isOpen) {
-    return (
+    return ReactDOM.createPortal(
       <FloatingToggle
         onClick={() => setIsOpen(true)}
-        unreadCount={messages.filter(m => m.role === "assistant").length}
-        className={className}
-      />
-    );
+        unreadCount={0}
+      />, document.body);
   }
 
-  return (
+  // Render in portal to document.body to avoid fixed positioning issues
+  return ReactDOM.createPortal(
     <div
       className={cn(
         "fixed bottom-6 right-6 z-50",
         "flex flex-col",
-        "w-[400px] h-[600px]",
+        "w-[400px] h-[80vh]",
         "rounded-2xl",
         "bg-slate-950/95",
         "backdrop-blur-xl",
@@ -197,8 +215,7 @@ export function ChatWidget({
           placeholder="Ask me anything about your tasks..."
         />
       </div>
-    </div>
-  );
+    </div>, document.body);
 }
 
 /**
@@ -215,7 +232,7 @@ function FloatingToggle({
   unreadCount = 0,
   className,
 }: FloatingToggleProps) {
-  return (
+  return ReactDOM.createPortal(
     <button
       onClick={onClick}
       className={cn(
@@ -265,6 +282,5 @@ function FloatingToggle({
           </span>
         )}
       </div>
-    </button>
-  );
+    </button>, document.body);
 }

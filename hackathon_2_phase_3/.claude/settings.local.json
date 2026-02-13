@@ -43,7 +43,20 @@
       "Bash(__NEW_LINE_e212bdddb3316245__ source venv/bin/activate)",
       "Bash(__NEW_LINE_e212bdddb3316245__ python3 -c \"\nfrom app.db.session import get_session\nfrom app.models.task import Task\nimport asyncio\n\nasync def check_tasks\\(\\):\n    async for session in get_session\\(\\):\n        result = await session.execute\\(\n            ''SELECT id, title, priority, completed, user_id FROM task ORDER BY created_at DESC LIMIT 5''\n        \\)\n        tasks = result.fetchall\\(\\)\n        print\\(''=== Recent Tasks ===''\\)\n        for task in tasks:\n            print\\(f''ID: {task[0]}, Title: {task[1]}, Priority: {task[2]}, Completed: {task[3]}, User: {task[4]}''\\)\n        break\n\nasyncio.run\\(check_tasks\\(\\)\\)\n\")",
       "Bash(PGPASSWORD='npg_Wo4kT5FNPYwI' psql:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "mcp__playwright__browser_press_key",
+      "Bash(npm run dev)",
+      "Bash(xargs:*)",
+      "Bash(echo:*)",
+      "Bash(/tmp/update_success.py << 'PYTHON_SCRIPT'\n# Read the file\nwith open\\(\"/mnt/e/Hackathon_2_To_do/hackathon_2_phase_3/backend/app/agents/todo_agent.py\", \"r\"\\) as f:\n    content = f.read\\(\\)\n\n# Define replacements\nreplacements = [\n    # Update add_task success\n    \\(\n        r'result\\\\s+=\\\\s+#\\\\s+Added task.*successfully.*!\"',\n        '''return result\n    \"success\": True,\n    \"message\": f\"✨ Added task: {title}!\"'''\n    \\),\n    # Update update_task success\n    \\(\n        r'result\\\\s+=\\\\s+#\\\\s+Updated task.*successfully.*!\"',\n        '''return result\n    \"success\": True,\n    \"message\": f\"✏ Updated task: {task_reference}!\"'''\n    \\),\n    # Update delete_task success\n    \\(\n        r'result\\\\s+=\\\\s+#\\\\s+Deleted task.*successfully.*!\"',\n        '''return result\n    \"success\": True,\n    \"message\": f\"🗑 Deleted task!\"'''\n    \\),\n    # Update complete_task success\n    \\(\n        r'result\\\\s+=\\\\s+#\\\\s+Completed task.*successfully.*!\"',\n        '''return result\n    \"success\": True,\n    \"message\": f\"✅ Completed task!\"'''\n    \\),\n]\n\n# Apply each replacement\nfor pattern, replacement in replacements:\n    content = re.sub\\(pattern, replacement, content, count=1\\)\n\n# Write back\nwith open\\(\"/mnt/e/Hackathon_2_To_do/hackathon_2_phase_3/backend/app/agents/todo_agent.py\", \"w\"\\) as f:\n    f.write\\(content\\)\n\nprint\\(\"Updated all success messages with emojis!\"\\)\nPYTHON_SCRIPT)",
+      "Bash(__NEW_LINE_4392d2ac2e5be1c3__ python3 /tmp/update_success.py)",
+      "Bash(/tmp/update_success.py << 'PYTHON_SCRIPT'\nimport re\n\n# Read the file\nwith open\\(\"/mnt/e/Hackathon_2_To_do/hackathon_2_phase_3/backend/app/agents/todo_agent.py\", \"r\"\\) as f:\n    content = f.read\\(\\)\n\n# Define replacements\nreplacements = [\n    # Update add_task success\n    \\(\n        r'result\\\\s+=\\\\s+#\\\\s+Added task.*successfully.*!\"',\n        '''return result\n    \"success\": True,\n    \"message\": f\"✨ Added task: {title}!\"'''\n    \\),\n    # Update update_task success\n    \\(\n        r'result\\\\s+=\\\\s+#\\\\s+Updated task.*successfully.*!\"',\n        '''return result\n    \"success\": True,\n    \"message\": f\"✏ Updated task: {task_reference}!\"'''\n    \\),\n    # Update delete_task success\n    \\(\n        r'result\\\\s+=\\\\s+#\\\\s+Deleted task.*successfully.*!\"',\n        '''return result\n    \"success\": True,\n    \"message\": f\"🗑 Deleted task!\"'''\n    \\),\n    # Update complete_task success\n    \\(\n        r'result\\\\s+=\\\\s+#\\\\s+Completed task.*successfully.*!\"',\n        '''return result\n    \"success\": True,\n    \"message\": f\"✅ Completed task!\"'''\n    \\),\n]\n\n# Apply each replacement\nfor pattern, replacement in replacements:\n    content = re.sub\\(pattern, replacement, content, count=1\\)\n\n# Write back\nwith open\\(\"/mnt/e/Hackathon_2_To_do/hackathon_2_phase_3/backend/app/agents/todo_agent.py\", \"w\"\\) as f:\n    f.write\\(content\\)\n\nprint\\(\"Updated all success messages with emojis!\"\\)\nPYTHON_SCRIPT)",
+      "Bash(__NEW_LINE_b42ca98e75889ffb__ python3 /tmp/update_success.py)",
+      "Bash(git checkout:*)",
+      "mcp__playwright__browser_resize",
+      "Bash(kill:*)",
+      "Bash(pgrep:*)",
+      "Bash(fuser:*)"
     ]
   }
 }

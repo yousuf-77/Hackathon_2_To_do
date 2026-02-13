@@ -95,6 +95,12 @@ class ApiClient {
       }
 
       console.log(`=== API Client: ${response.status} ${options?.method || 'GET'} ${url} ===`);
+
+      // Handle 204 No Content responses (DELETE, etc.)
+      if (response.status === 204) {
+        return undefined as T;
+      }
+
       return await response.json();
     } catch (error) {
       console.error("=== API Client: Request failed ===", error);

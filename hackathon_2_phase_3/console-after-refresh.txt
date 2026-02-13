@@ -1,0 +1,23 @@
+Total messages: 11 (Errors: 2, Warnings: 0)
+
+[INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25630
+[ERROR] Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. /dashboard @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:56
+[ERROR] Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. # @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:56
+[LOG] === NAVBAR: Fetching session === @ webpack-internal:///(app-pages-browser)/./components/layout/navbar-client.tsx:42
+[LOG] === Auth token fetched successfully === @ webpack-internal:///(app-pages-browser)/./app/dashboard/page.tsx:44
+[LOG] === NAVBAR: Session result === {
+  "data": {
+    "session": {
+      "expiresAt": "2026-02-18T01:12:00.879Z",
+      "token": "syUre68bQMziw2Upq62HU7gkV2sRkt1T",
+      "createdAt": "2026-02-11T01:12:00.879Z",
+      "updatedAt": "2026-02-11T01:12:00.879Z",
+      "ipAddress": "0000:0000:0000:0000:0000:0000:0000:0000",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36",
+      "userId": "Lealc6z2YJRtNTC5eLCePmg5yE6lwevU",
+      "id": "1T48ARhZ4tePJF8jAVCenp9Tb6 @ webpack-internal:///(app-pages-browser)/./components/layout/navbar-client.tsx:44
+[LOG] === NAVBAR: Setting user: Test User @ webpack-internal:///(app-pages-browser)/./components/layout/navbar-client.tsx:46
+[LOG] === API Client: Fetching new JWT === @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:22
+[LOG] === API Client: Got new JWT, caching it === @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:34
+[LOG] === API Client: GET http://localhost:8000/api/Lealc6z2YJRtNTC5eLCePmg5yE6lwevU/tasks === @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:48
+[LOG] === API Client: Has token: true @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:49

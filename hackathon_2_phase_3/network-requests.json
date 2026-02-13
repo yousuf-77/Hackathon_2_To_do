@@ -1,0 +1,19 @@
+[GET] http://localhost:3000/dashboard => [200] OK
+[GET] http://localhost:3000/api/proxy/EPbJXtVHKQRbPedwwlSyDm7tURoc0ChH/tasks => [FAILED] net::ERR_ABORTED
+[GET] http://localhost:3000/_next/static/media/bb3ef058b751a6ad-s.p.woff2 => [200] OK
+[GET] http://localhost:3000/_next/static/media/e4af272ccee01ff0-s.p.woff2 => [200] OK
+[GET] http://localhost:3000/_next/static/css/app/layout.css?v=1770808385219 => [200] OK
+[GET] http://localhost:3000/_next/static/chunks/webpack.js?v=1770808385219 => [200] OK
+[GET] http://localhost:3000/_next/static/chunks/main-app.js?v=1770808385219 => [200] OK
+[GET] http://localhost:3000/_next/static/chunks/app-pages-internals.js => [200] OK
+[GET] http://localhost:3000/_next/static/chunks/app/layout.js => [200] OK
+[GET] http://localhost:3000/_next/static/chunks/app/error.js => [200] OK
+[GET] http://localhost:3000/_next/static/chunks/app/not-found.js => [200] OK
+[GET] http://localhost:3000/_next/static/chunks/app/dashboard/page.js => [200] OK
+[GET] http://localhost:3000/_next/static/chunks/app/dashboard/layout.js => [200] OK
+[GET] http://localhost:3000/__nextjs_font/geist-latin.woff2 => [200] OK
+[GET] http://localhost:3000/api/auth/token => [200] OK
+[GET] http://localhost:3000/api/auth/get-session => [200] OK
+[POST] http://localhost:3000/__nextjs_original-stack-frames => [200] OK
+[POST] http://localhost:3000/__nextjs_original-stack-frames => [200] OK
+[GET] http://localhost:3000/api/proxy/EPbJXtVHKQRbPedwwlSyDm7tURoc0ChH/tasks

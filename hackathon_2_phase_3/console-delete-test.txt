@@ -1,0 +1,92 @@
+Total messages: 26 (Errors: 4, Warnings: 0)
+
+[ERROR] === Failed to fetch auth token === TypeError: Failed to fetch
+    at DashboardPage.useEffect.fetchAuth (webpack-internal:///(app-pages-browser)/./app/dashboard/page.tsx:66:48)
+    at DashboardPage.useEffect (webpack-internal:///(app-pages-browser)/./app/dashboard/page.tsx:80:13)
+    at Object.react_stack_bottom_frame (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:23669:20)
+    at runWithFiberInDEV (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:872:30)
+    at commitHookEffectListMount (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:12345:29)
+    at commitHookPassiveMountEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:12466:11)
+    at reconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14563:11)
+    at recursivelyTraverseReconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14534:9)
+    at reconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14556:11)
+    at recursivelyTraverseReconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14534:9)
+    at reconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14556:11)
+    at recursivelyTraverseReconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14534:9)
+    at reconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14610:11)
+    at recursivelyTraverseReconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14534:9)
+    at reconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14610:11)
+    at recursivelyTraverseReconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14534:9)
+    at reconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14556:11)
+    at recursivelyTraverseReconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14534:9)
+    at reconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14610:11)
+    at recursivelyTraverseReconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14534:9)
+    at reconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14556:11)
+    at recursivelyTraverseReconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14534:9)
+    at reconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14556:11)
+    at recursivelyTraverseReconnectPassiveEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14534:9)
+    at commitPassiveMountOnFiber (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14493:17)
+    at recursivelyTraversePassiveMountEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14360:11)
+    at commitPassiveMountOnFiber (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14458:11)
+    at recursivelyTraversePassiveMountEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14360:11)
+    at commitPassiveMountOnFiber (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14380:11)
+    at recursivelyTraversePassiveMountEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14360:11)
+    at commitPassiveMountOnFiber (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14380:11)
+    at recursivelyTraversePassiveMountEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14360:11)
+    at commitPassiveMountOnFiber (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14390:11)
+    at recursivelyTraversePassiveMountEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14360:11)
+    at commitPassiveMountOnFiber (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14380:11)
+    at recursivelyTraversePassiveMountEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14360:11)
+    at commitPassiveMountOnFiber (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14380:11)
+    at recursivelyTraversePassiveMountEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14360:11)
+    at commitPassiveMountOnFiber (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14514:11)
+    at recursivelyTraversePassiveMountEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14360:11)
+    at commitPassiveMountOnFiber (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14514:11)
+    at recursivelyTraversePassiveMountEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14360:11)
+    at commitPassiveMountOnFiber (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14380:11)
+    at recursivelyTraversePassiveMountEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14360:11)
+    at commitPassiveMountOnFiber (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14380:11)
+    at recursivelyTraversePassiveMountEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14360:11)
+    at commitPassiveMountOnFiber (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14514:11)
+    at recursivelyTraversePassiveMountEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14360:11)
+    at commitPassiveMountOnFiber (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14514:11)
+    at recursivelyTraversePassiveMountEffects (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:14360:11) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:56
+[ERROR] === NAVBAR: Error loading session === TypeError: Failed to fetch
+    at betterFetch (webpack-internal:///(app-pages-browser)/./node_modules/@better-fetch/fetch/dist/index.js:597:24)
+    at async $fetch (webpack-internal:///(app-pages-browser)/./node_modules/@better-fetch/fetch/dist/index.js:500:12)
+    at async Object.apply (webpack-internal:///(app-pages-browser)/./node_modules/better-auth/dist/client/proxy.mjs:44:12)
+    at async loadSession (webpack-internal:///(app-pages-browser)/./components/layout/navbar-client.tsx:44:43) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:56
+[INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25630
+[ERROR] Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. /dashboard @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:56
+[ERROR] Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. # @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:56
+[LOG] === NAVBAR: Fetching session === @ webpack-internal:///(app-pages-browser)/./components/layout/navbar-client.tsx:42
+[LOG] === Auth token fetched successfully === @ webpack-internal:///(app-pages-browser)/./app/dashboard/page.tsx:71
+[LOG] === NAVBAR: Session result === {
+  "data": {
+    "session": {
+      "expiresAt": "2026-02-18T01:44:45.375Z",
+      "token": "5qUB18eaQcOKadDND9a7zecKlohPHEG5",
+      "createdAt": "2026-02-11T01:44:45.376Z",
+      "updatedAt": "2026-02-11T01:44:45.376Z",
+      "ipAddress": "0000:0000:0000:0000:0000:0000:0000:0000",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36",
+      "userId": "EPbJXtVHKQRbPedwwlSyDm7tURoc0ChH",
+      "id": "jDO1uLVlmHsHquTwVzPPH9EfYM @ webpack-internal:///(app-pages-browser)/./components/layout/navbar-client.tsx:44
+[LOG] === NAVBAR: Setting user: Demo User @ webpack-internal:///(app-pages-browser)/./components/layout/navbar-client.tsx:46
+[LOG] === API Client: Fetching new JWT === @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:22
+[LOG] === API Client: Got new JWT, caching it === @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:34
+[LOG] === API Client: POST http://localhost:8000/api/EPbJXtVHKQRbPedwwlSyDm7tURoc0ChH/tasks === @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:48
+[LOG] === API Client: Has token: true @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:49
+[LOG] === API Client: 201 POST http://localhost:8000/api/EPbJXtVHKQRbPedwwlSyDm7tURoc0ChH/tasks === @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:71
+[LOG] === API Client: Using cached JWT === @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:19
+[LOG] === API Client: DELETE http://localhost:8000/api/EPbJXtVHKQRbPedwwlSyDm7tURoc0ChH/tasks/91b88179-22aa-431e-b8be-5009e32fe07d === @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:48
+[LOG] === API Client: Has token: true @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:49
+[LOG] === API Client: 204 DELETE http://localhost:8000/api/EPbJXtVHKQRbPedwwlSyDm7tURoc0ChH/tasks/91b88179-22aa-431e-b8be-5009e32fe07d === @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:71
+[LOG] === API Client: Using cached JWT === @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:19
+[LOG] === API Client: POST http://localhost:8000/api/EPbJXtVHKQRbPedwwlSyDm7tURoc0ChH/tasks === @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:48
+[LOG] === API Client: Has token: true @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:49
+[LOG] === API Client: 201 POST http://localhost:8000/api/EPbJXtVHKQRbPedwwlSyDm7tURoc0ChH/tasks === @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:71
+[LOG] === API Client: Using cached JWT === @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:19
+[LOG] === API Client: DELETE http://localhost:8000/api/EPbJXtVHKQRbPedwwlSyDm7tURoc0ChH/tasks/b1684f8c-b29a-43c8-bbda-128e994f1851 === @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:48
+[LOG] === API Client: Has token: true @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:49
+[LOG] === API Client: 204 DELETE http://localhost:8000/api/EPbJXtVHKQRbPedwwlSyDm7tURoc0ChH/tasks/b1684f8c-b29a-43c8-bbda-128e994f1851 === @ webpack-internal:///(app-pages-browser)/./lib/api-client.ts:71

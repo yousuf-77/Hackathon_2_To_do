@@ -66,21 +66,16 @@ class TodoAgentOrchestrator:
         """
         try:
             # Step 1: Parse user input
-            yield {
-                "type": "content",
-                "content": f"\n🔍 Understanding: '{user_message}'...\n",
-            }
-
             parse_result = self.nlp_parser.parse(user_message)
             intent = parse_result["intent"]
             entities = parse_result["entities"]
             confidence = parse_result["confidence"]
 
-            # Step 2: Log intent detection
-            yield {
-                "type": "content",
-                "content": f"✓ Intent detected: {intent} (confidence: {confidence:.0%})\n",
-            }
+            # Step 2: Log intent detection (removed debug output)
+            # yield {
+            #     "type": "content",
+            #     "content": "",
+            # }
 
             # Step 3: Handle unknown intent
             if intent == Intent.UNKNOWN.value:

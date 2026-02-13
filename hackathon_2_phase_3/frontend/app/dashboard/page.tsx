@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { TaskList } from "@/components/task/task-list";
 import { TaskTable } from "@/components/task/task-table";
 import { AddTaskDialog } from "@/components/task/add-task-dialog";
+import { TaskEditDialog } from "@/components/tasks/TaskEditDialog";
 import { ChatWidget } from "@/components/chatkit/ChatWidget";
 import { tasksApi } from "@/lib/api/tasks";
 import { useToast } from "@/components/ui/use-toast";
@@ -17,11 +18,26 @@ export default function DashboardPage() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [authToken, setAuthToken] = useState<string | null>(null);
+  const [editingTask, setEditingTask] = useState<Task | null>(null);
 
   useEffect(() => {
     fetchTasks();
     fetchAuthToken();
   }, []);
+
+  // Real-time polling: refresh tasks every 2 seconds
+  useEffect(() => {
+    // Only start polling after initial load and if we have auth
+    if (!isLoading && authToken) {
+      const intervalId = setInterval(() => {
+        // Silently refresh tasks in background (no loading state)
+        silentFetchTasks();
+      }, 2000); // 2-second polling for near real-time updates
+
+      // Cleanup interval on component unmount
+      return () => clearInterval(intervalId);
+    }
+  }, [isLoading, authToken]);
 
   const fetchAuthToken = async () => {
     try {
@@ -53,6 +69,17 @@ export default function DashboardPage() {
       setTasks([]);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  // Silent fetch for polling (doesn't set loading state)
+  const silentFetchTasks = async () => {
+    try {
+      const response = await tasksApi.getTasks();
+      setTasks(response.tasks || []);
+    } catch (error) {
+      // Silently fail for polling errors to avoid annoying user
+      console.debug("Silent fetch error:", error);
     }
   };
 
@@ -97,10 +124,41 @@ export default function DashboardPage() {
   };
 
   const handleEdit = (task: Task) => {
-    // TODO: Implement edit dialog
-    toast({
-      title: "Edit feature coming soon",
-    });
+    setEditingTask(task);
+  };
+
+  const handleEditSave = async (updatedTask: Task) => {
+    try {
+      // Call API to update task
+      await tasksApi.updateTask(updatedTask.id, {
+        title: updatedTask.title,
+        description: updatedTask.description,
+        priority: updatedTask.priority,
+        completed: updatedTask.completed,
+      });
+
+      // Optimistically update local state (functional form to avoid closure issues)
+      setTasks(prevTasks => prevTasks.map(t => t.id === updatedTask.id ? updatedTask : t));
+
+      // Close dialog
+      setEditingTask(null);
+
+      toast({
+        title: "Task updated successfully",
+      });
+    } catch (error) {
+      toast({
+        title: "Failed to update task",
+        description: error instanceof Error ? error.message : "Unknown error",
+        variant: "destructive",
+      });
+      // Re-fetch to ensure consistency
+      fetchTasks();
+    }
+  };
+
+  const handleEditCancel = () => {
+    setEditingTask(null);
   };
 
   const handleTaskAdded = () => {
@@ -175,8 +233,17 @@ export default function DashboardPage() {
 
       {/* Phase 3: AI Chatbot Widget */}
       <ChatWidget
+        key="chatbot-widget"
         apiEndpoint={`${process.env.NEXT_PUBLIC_API_URL}/agent/chat`}
         authToken={authToken || undefined}
+        initialOpen={true}
+      />
+
+      {/* Edit Task Dialog */}
+      <TaskEditDialog
+        task={editingTask}
+        onSave={handleEditSave}
+        onCancel={handleEditCancel}
       />
     </div>
   );

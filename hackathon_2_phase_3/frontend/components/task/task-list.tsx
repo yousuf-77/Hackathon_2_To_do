@@ -1,12 +1,13 @@
 import { TaskCard } from "./task-card";
 import type { Task } from "@/types/task";
+import type { ReactNode } from "react";
 
 interface TaskListProps {
   tasks: Task[];
   onToggleComplete: (id: string) => void;
   onEdit: (task: Task) => void;
   onDelete: (id: string) => void;
-  emptyMessage?: string;
+  emptyMessage?: string | ReactNode;
 }
 
 export function TaskList({
@@ -19,7 +20,11 @@ export function TaskList({
   if (tasks.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-muted-foreground">{emptyMessage}</p>
+        {typeof emptyMessage === "string" ? (
+          <p className="text-muted-foreground">{emptyMessage}</p>
+        ) : (
+          emptyMessage
+        )}
       </div>
     );
   }

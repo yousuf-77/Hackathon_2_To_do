@@ -57,7 +57,10 @@
       "Bash(kill:*)",
       "Bash(pgrep:*)",
       "Bash(fuser:*)",
-      "Bash(npx next build:*)"
+      "Bash(npx next build:*)",
+      "Bash(npx --yes playwright install:*)",
+      "Bash(node:*)",
+      "Bash(npx playwright install:*)"
     ]
   }
 }

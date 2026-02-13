@@ -164,6 +164,64 @@
     }
   }
 
+  @keyframes glow-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes border-flow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      opacity: 1;
+      text-shadow:
+        0 0 5px rgba(6, 182, 212, 0.5),
+        0 0 10px rgba(6, 182, 212, 0.3),
+        0 0 20px rgba(6, 182, 212, 0.2);
+    }
+    20%, 24%, 55% {
+      opacity: 0.8;
+      text-shadow: none;
+    }
+  }
+
   .animate-shimmer {
     animation: shimmer 2s infinite linear;
     background: linear-gradient(
@@ -181,6 +239,28 @@
 
   .animate-float {
     animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-glow-spin {
+    animation: glow-spin 4s linear infinite;
+  }
+
+  .animate-border-flow {
+    animation: border-flow 3s ease-in-out infinite;
+    background-size: 200% 200%;
+  }
+
+  .animate-sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  .animate-gradient-shift {
+    animation: gradient-shift 3s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  .animate-neon-flicker {
+    animation: neon-flicker 3s infinite;
   }
 
   /* Loading States */

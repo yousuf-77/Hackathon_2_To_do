@@ -19,7 +19,7 @@ export const auth = betterAuth({
 
   advanced: {
     useSecureCookies: false,
-    cookiePrefix: "better-auth",
+    // cookiePrefix: "better-auth",  // REMOVED - Don't use custom prefix
     generateId: () => Math.random().toString(36).substring(2, 15),
   },
 

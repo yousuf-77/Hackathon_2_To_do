@@ -61,7 +61,12 @@
       "Bash(npx --yes playwright install:*)",
       "Bash(node:*)",
       "Bash(npx playwright install:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(uvicorn:*)",
+      "Bash(tee:*)",
+      "Bash(npm run type-check:*)",
+      "Bash(timeout 10 npm run start:*)",
+      "Bash(PORT=3001 timeout 10 npm run start:*)"
     ]
   }
 }
